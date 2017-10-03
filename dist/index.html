@@ -1,0 +1,89 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Reef Doctor Internal Network</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="assets/logo.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="rdHeader"><div class="logo"></div><div class="nav" tabIndex="1"><div class="hamburger"></div><nav><a href="//www.rd">Information</a><a href="//files.rd">Files</a><a href="//data.rd">Data</a><a href="//maps.rd">Maps</a><a href="//upload.rd">Upload</a></nav></div><div class="logo-text"></div></header>
+    
+    <h1>Reef Doctor Internal Network</h1>
+    <h2>Web Sites</h2>
+    <ul>
+      <li>
+        <a href="//www.rd" target="_blank">www.rd</a> -
+        Information about Reef Doctor
+      </li>
+      <li>
+        <a href="//files.rd" target="_blank">files.rd</a> - 
+        Useful files including the all Reef Doctor presentations, useful software
+        and the sustainable living (SL) data templates.
+      </li>
+      <li>
+        <a href="//data.rd" target="_blank">data.rd</a> -
+        Aquaculture and Science data
+      </li>
+      <li>
+        <a href="//maps.rd" target="_blank">maps.rd</a> -
+        Satellite map of the Bay of Ranobe, including dive sites and fishing
+        grounds
+      </li>
+      <li>
+        <a href="//upload.rd" target="_blank">upload.rd</a> -
+        The place to upload complete SL data worksheets
+      </li>
+    </ul>
+
+    <h2>Cached Map Tiles</h2>
+    <p>
+      The cached maps tiles used in
+      <a href="//maps.rd" target="_blank">maps.rd</a> are also available for
+      use in other applications such as QGIS. The can be accessed using the
+      following URL.
+    </p>
+    <p>
+      http://maps.rd/tiles/OSM_sat_tiles/{z}/{y}/{x}.png
+    </p>
+    <p>
+      An example tile is
+      <a href="http://maps.rd/tiles/OSM_sat_tiles/18/162829/148412.png" target="_blank">
+        http://maps.rd/tiles/OSM_sat_tiles/17/81396/74197.png
+      </a>
+    </p>
+    <h3>QGIS</h3>
+    <p>
+      To use the map tiles in QGIS:
+      <ol>
+        <li>open QGIS</li>
+        <li>
+          in the <em>Browser Panel</em>, right-click on
+          <em>Tile Server (XYZ)</em> and select <em>New Connection...</em>
+        </li>
+        <li>
+          past the tile URL
+          <em>http://maps.rd/tiles/OSM_sat_tiles/{z}/{y}/{x}.png</em>
+          into the dialog and click <em>OK</em>
+        </li>
+        <li>
+          give the server a name (can be whatever you want) and click
+          <em>OK</em>
+        </li>
+        <li>
+          Your newly created connection should appear under
+          <em>Tile Server (XYZ)</em>
+        </li>
+      </ol>
+    </p>
+    <p>
+      You can now use the maps in your mapping projects by either double clicking
+      your created connection, or right clicking on it and selecting
+      <em>Add Layer</em>
+    </p>
+  
+    
+  </body>
+</html>

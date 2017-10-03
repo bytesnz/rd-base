@@ -1,0 +1,28 @@
+{
+  "name": "rd-base",
+  "version": "0.1.0",
+  "description": "Styling for Reef Doctor web pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style": "postcss -o dist/assets/style.css src/style.scss",
+    "pages": "tsc && bin/makePages"
+  },
+  "author": "Jack Farley <bytesnz>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "postcss-scss": "^1.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "compass": "^0.1.1",
+    "ejs": "^2.5.7",
+    "glob": "^7.1.2",
+    "postcss": "^6.0.10",
+    "postcss-cli": "^4.1.0",
+    "postcss-smart-import": "^0.7.5",
+    "precss": "^2.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}

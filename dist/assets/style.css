@@ -1,0 +1,125 @@
+:export {
+  rdLime: #88bd23;
+  rdGreen: #007e31;
+  rdBaby: #01b5e5;
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fontawesome-webfont.woff2') format('woff2'), url('fontawesome-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+a {
+  color: #007e31;
+  text-decoration: none
+}
+a:hover {
+  text-decoration: underline;
+}
+header.rdHeader {
+  padding: 10px 20px;
+}
+header.rdHeader > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+header.rdHeader > .logo {
+    background: url('logo.svg') 0 0 / 54px 54px no-repeat;
+    width: 54px;
+    height: 54px;
+  }
+header.rdHeader > .logo-text {
+    background: url('logo-text.svg') no-repeat;
+    float: right;
+    width: 318px;
+    height: 52px;
+  }
+header.rdHeader div.nav {
+    display: inline-block;
+    margin: 0 10px;
+  }
+header.rdHeader div.nav a {
+      font-weight: bold;
+      display: inline-block;
+      padding: 1px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      /*background: $rdGreen;*/
+      border: solid 2px #007e31;
+      background: #fff;
+      /*background: color($rdGreen a(70%));*/
+      /*color: #fff;*/
+      color: #007e31
+    }
+header.rdHeader div.nav a:hover {
+  background: #007e31;
+  color: #fff;
+  text-decoration: none;
+}
+@media(max-width: 1000px) {
+    header.rdHeader div.nav {
+      float: right;
+      margin: 15px;
+      position: relative;
+    }
+
+      header.rdHeader div.nav nav {
+        position: absolute;
+        right: 0px;
+        display: none;
+      }
+
+        header.rdHeader div.nav nav a {
+          display: block;
+
+          border: none;
+          border-radius: 0;
+          margin: 0;
+          padding: 8px 25px;
+        }
+
+      header.rdHeader div.nav div.hamburger {
+        width: 20px;
+        height: 20px;
+        background: #ddd;
+        background: -webkit-gradient(linear, left top, left bottom, from(#007e31),color-stop(20%, #007e31),color-stop(20%, #ffffff),color-stop(40%, #ffffff),color-stop(40%, #007e31),color-stop(60%, #007e31),color-stop(60%, #ffffff),color-stop(80%, #ffffff),color-stop(80%, #007e31),to(#007e31));
+        background: linear-gradient(to bottom, #007e31 0%,#007e31 20%,#ffffff 20%,#ffffff 40%,#007e31 40%,#007e31 60%,#ffffff 60%,#ffffff 80%,#007e31 80%,#007e31 100%);
+      }
+    header.rdHeader div.nav:focus div.hamburger {
+          background: -webkit-gradient(linear, left top, right top, from(#007e31),color-stop(20%, #007e31),color-stop(20%, #ffffff),color-stop(40%, #ffffff),color-stop(40%, #007e31),color-stop(60%, #007e31),color-stop(60%, #ffffff),color-stop(80%, #ffffff),color-stop(80%, #007e31),to(#007e31));
+          background: linear-gradient(to right, #007e31 0%,#007e31 20%,#ffffff 20%,#ffffff 40%,#007e31 40%,#007e31 60%,#ffffff 60%,#ffffff 80%,#007e31 80%,#007e31 100%);
+  }
+    header.rdHeader div.nav:focus nav {
+          display: block;
+          z-index: 10;
+  }
+}
+@media(max-width: 500px) {
+  header.rdHeader {
+    padding: 10px/2 20px/2;
+  }
+
+    header.rdHeader > .logo-text {
+      display: none;
+    }
+
+    header.rdHeader > .logo {
+      background-size: 30px 30px;
+      width: 30px;
+      height: 30px;
+    }
+}
+h1 {
+  color: #007e31
+}

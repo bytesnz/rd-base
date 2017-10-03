@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+const ejs = require('ejs');
+const path = require('path');
+const ReactDOMServer = require('react-dom/server');
+const glob = require('glob');
+const fs = require('fs');
+
+const ejsTemplate = path.join(__dirname, '../src/index.ejs');
+const pagesFolder = path.join(__dirname, '../src/pages');
+const publishedFolder = path.join(__dirname, '../dist/');
+
+const { RDHeader } = require('../index');
+
+// Render templates
+const header = ReactDOMServer.renderToStaticMarkup(RDHeader());
+const engine = ejs.compile(fs.readFileSync(ejsTemplate).toString());
+
+// Create pages
+console.log(`finding pages in ${pagesFolder} - ${path.join(pagesFolder, '*.js')}`);
+glob(path.join(pagesFolder, '*.js'), (error, pages) => {
+  if (error) {
+    console.error('Error globbing', error);
+    return;
+  }
+
+  pages.forEach((page) => {
+    const basename = path.basename(page, '.js');
+    const output = path.join(publishedFolder, `${basename}.html`);
+
+    console.log(`Rendering page ${page} to ${output}`);
+    fs.writeFileSync(output,
+        engine({
+          header: header,
+          footer: '',
+          page: require(page)
+        })
+    );
+  });
+});
