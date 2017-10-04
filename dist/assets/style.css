@@ -102,13 +102,17 @@ header.rdHeader div.nav a:hover {
   }
     header.rdHeader div.nav:focus nav {
           display: block;
-          z-index: 10;
+          z-index: 1000;
   }
 }
 @media(max-width: 500px) {
   header.rdHeader {
     padding: 10px/2 20px/2;
   }
+
+    header.rdHeader div.nav {
+      margin: 5px;
+    }
 
     header.rdHeader > .logo-text {
       display: none;
