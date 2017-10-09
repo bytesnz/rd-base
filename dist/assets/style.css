@@ -27,6 +27,57 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.small {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.fullForm label {
+    display: block;
+    margin-bottom: 1.5em;
+  }
+.fullForm label input, .fullForm label select, .fullForm label textarea {
+      display: block;
+      width: 100%;
+      margin: 0.5em 0;
+      border: none;
+      background-color: transparent;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      border-bottom: solid 1px #000
+    }
+.fullForm label input:invalid, .fullForm label select:invalid, .fullForm label textarea:invalid {
+  border-bottom-color: #ff0000;
+}
+.fullForm label div.select {
+      position: relative;
+    }
+.fullForm label div.select select {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+      }
+.fullForm label div.select:after {
+  font-family: 'FontAwesome';
+  content: '\f103';
+  color: #CCC;
+  position: absolute;
+  right: 5px;
+  top: 2px;
+}
+.fullForm label input[type=checkbox], .fullForm label input[type=radio], .fullForm label input[type=file] {
+      display: inline;
+      border: none;
+    }
+.fullForm label span {
+      display: block;
+      font-size: 70%;
+    }
+.fullForm .react-datepicker-wrapper {
+    display: block;
+  }
+.fullForm .react-datepicker-wrapper .react-datepicker__input-container {
+      display: block;
+    }
 header.rdHeader {
   padding: 10px 20px;
 }
