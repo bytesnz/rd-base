@@ -4,11 +4,13 @@ $headerHPadding: 20px;
 $rdLime: #88bd23;
 $rdGreen: #007e31;
 $rdBaby: #01b5e5;
+$rdBlue: #001f7d;
 
 :export {
   rdLime: #88bd23;
   rdGreen: #007e31;
   rdBaby: #01b5e5;
+  rdBlue: #001f7d;
 }
 
 @font-face {
@@ -43,6 +45,10 @@ a {
 .small {
   max-width: 500px;
   margin: 0 auto;
+}
+
+body > main {
+  padding: 10px 5%;
 }
 
 .fullForm {
@@ -212,5 +218,14 @@ header.rdHeader {
 }
 
 h1 {
-  color: $rdGreen
+  color: $rdGreen;
+}
+
+h2 {
+  color: $rdBaby;
+}
+
+h3 {
+  color: $rdBlue;
+  font-weight: normal;
 }

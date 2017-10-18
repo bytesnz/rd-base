@@ -2,6 +2,7 @@
   rdLime: #88bd23;
   rdGreen: #007e31;
   rdBaby: #01b5e5;
+  rdBlue: #001f7d;
 }
 @font-face {
   font-family: 'FontAwesome';
@@ -30,6 +31,9 @@ a:hover {
 .small {
   max-width: 500px;
   margin: 0 auto;
+}
+body > main {
+  padding: 10px 5%;
 }
 .fullForm label {
     display: block;
@@ -176,5 +180,12 @@ header.rdHeader div.nav a:hover {
     }
 }
 h1 {
-  color: #007e31
+  color: #007e31;
+}
+h2 {
+  color: #01b5e5;
+}
+h3 {
+  color: #001f7d;
+  font-weight: normal;
 }
