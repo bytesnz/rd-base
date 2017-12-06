@@ -12,13 +12,15 @@ const publishedFolder = path.join(__dirname, '../dist/');
 
 const { RDHeader } = require('../index');
 
+const listingSplit = '<!--LISTING-->';
+
 // Render templates
 const header = ReactDOMServer.renderToStaticMarkup(RDHeader());
 const engine = ejs.compile(fs.readFileSync(ejsTemplate).toString());
 
 // Create pages
 console.log(`finding pages in ${pagesFolder} - ${path.join(pagesFolder, '*.js')}`);
-glob(path.join(pagesFolder, '*.js'), (error, pages) => {
+glob(path.join(pagesFolder, '**/*.js'), (error, pages) => {
   if (error) {
     console.error('Error globbing', error);
     return;
@@ -26,15 +28,53 @@ glob(path.join(pagesFolder, '*.js'), (error, pages) => {
 
   pages.forEach((page) => {
     const basename = path.basename(page, '.js');
-    const output = path.join(publishedFolder, `${basename}.html`);
 
-    console.log(`Rendering page ${page} to ${output}`);
-    fs.writeFileSync(output,
-        engine({
-          header: header,
-          footer: '',
-          page: require(page)
-        })
-    );
+    let pageData = require(page);
+    if (page.match(/\/listings\/.*\.js/)) {
+      pageData.body = `
+        <style>
+          table#list {
+            width: 100%;
+          }
+          table#list th {
+            text-align: left;
+          }
+        </style>
+        ${pageData.body}
+      `;
+    }
+
+    const contents = engine({
+      header: header,
+      footer: '',
+      page: pageData
+    });
+
+    if (page.match(/\/listings\/.*\.js/) && contents.indexOf(listingSplit) !== -1) {
+      const parts = contents.split(listingSplit);
+      const folder = path.join(publishedFolder, basename);
+      const before = path.join(folder, 'before.html');
+      const after = path.join(folder, 'after.html');
+      try {
+        const stat = fs.statSync(folder);
+        if (!stat.isDirectory()) {
+          throw new Error(`File ${folder} is not a folder`);
+        }
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          console.log(`creating directory ${folder}`);
+          fs.mkdirSync(folder);
+        } else {
+          throw err;
+        }
+      }
+      console.log(`Rendering page ${page} to ${before} and ${after}`);
+      fs.writeFileSync(before, parts[0]);
+      fs.writeFileSync(after, parts[1]);
+    } else {
+      const output = path.join(publishedFolder, `${basename}.html`);
+      console.log(`Rendering page ${page} to ${output}`);
+      fs.writeFileSync(output, contents);
+    }
   });
 });
