@@ -159,6 +159,8 @@ header.rdHeader div.nav a:hover {
     header.rdHeader div.nav:focus nav {
           display: block;
           z-index: 1000;
+          -webkit-box-shadow: -3px 2px 3px rgba(0,0,0,.2);
+                  box-shadow: -3px 2px 3px rgba(0,0,0,.2);
   }
 }
 @media(max-width: 500px) {
