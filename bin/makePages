@@ -6,7 +6,7 @@ const ReactDOMServer = require('react-dom/server');
 const glob = require('glob');
 const fs = require('fs');
 
-const ejsTemplate = path.join(__dirname, '../src/index.ejs');
+const ejsTemplate = path.join(__dirname, '../index.ejs');
 const pagesFolder = path.join(__dirname, '../src/pages');
 const publishedFolder = path.join(__dirname, '../dist/');
 

@@ -103,6 +103,7 @@ header.rdHeader > .logo-text {
 header.rdHeader div.nav {
     display: inline-block;
     margin: 0 10px;
+    outline: none;
   }
 header.rdHeader div.nav a {
       font-weight: bold;
